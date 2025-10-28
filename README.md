@@ -1,2 +1,423 @@
-# KDA
-FOR KDA STUDENTS CLUBS
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>King David Academy Clubs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700|Merriweather:700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://www.kingdavidacademy.co/wp-content/uploads/2021/04/cropped-KDA-Logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            font-family: 'Roboto', Arial, sans-serif;
+            color: #2e4d2f;
+            min-height: 100vh;
+            margin: 0;
+        }
+        nav {
+            background: rgba(44, 62, 80, 0.96);
+            color: #fff;
+            padding: 0.8em 2em;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 8px #0003;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        nav .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.7em;
+        }
+        nav .logo img {
+            width: 42px;
+            vertical-align: middle;
+            border-radius: 8px;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2em;
+            margin: 0;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.15em;
+            border-radius: 16px;
+            padding: 0.3em 1em;
+            transition: background .2s, color .2s, box-shadow .2s;
+            display: flex;
+            align-items: center;
+            gap: 0.4em;
+        }
+        nav ul li a:hover, nav ul li a.active {
+            background: #eaf6f6;
+            color: #2980b9;
+            box-shadow: 0 2px 8px #2980b955;
+        }
+        .hero {
+            background: rgba(255,255,255,0.93);
+            margin: 2em auto;
+            padding: 2em;
+            border-radius: 1em;
+            max-width: 700px;
+            text-align: center;
+            box-shadow: 0 4px 24px #2980b922;
+            position: relative;
+        }
+        .hero h1 {
+            color: #2980b9;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 8px #8fd3f4;
+            margin-bottom: 0.3em;
+            font-family: 'Merriweather', serif;
+        }
+        .hero p {
+            font-size: 1.25em;
+            margin-bottom: 1em;
+        }
+        .clubs-section {
+            max-width: 1100px;
+            margin: 2em auto;
+            padding: 2em;
+            background: rgba(255,255,255,0.94);
+            border-radius: 2em;
+            box-shadow: 0 4px 24px #2980b922;
+        }
+        .clubs-title {
+            text-align: center;
+            color: #2980b9;
+            font-size: 2em;
+            margin-bottom: 1em;
+        }
+        .clubs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2em;
+        }
+        .club-card {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 2px 12px #2980b922;
+            text-align: center;
+            padding: 1.2em 1em;
+            transition: transform 0.23s, box-shadow 0.23s;
+            border: 3px solid #eaf6f6;
+            position: relative;
+            overflow: hidden;
+        }
+        .club-card:hover {
+            transform: scale(1.04) rotate(-2deg);
+            box-shadow: 0 6px 28px #2980b944;
+        }
+        .club-card .icon {
+            font-size: 2.5em;
+            margin-bottom: 0.4em;
+            animation: bounce 1.5s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% {transform: translateY(0);}
+            50% {transform: translateY(-12px);}
+        }
+        .club-card img {
+            width: 100%;
+            max-width: 170px;
+            border-radius: 14px;
+            margin-bottom: 0.6em;
+            box-shadow: 0 2px 8px #2980b922;
+            border: 2px solid #aee6e6;
+        }
+        .club-card h3 {
+            margin-bottom: 0.3em;
+            font-size: 1.25em;
+            color: #2980b9;
+        }
+        .club-card p {
+            font-size: 1em;
+            margin-bottom: 0.7em;
+        }
+        .club-card a {
+            display: inline-block;
+            background: #2980b9;
+            color: #fff;
+            text-decoration: none;
+            padding: 0.4em 1.1em;
+            font-size: 1em;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px #2980b922;
+            transition: background .2s;
+        }
+        .club-card a:hover {
+            background: #27ae60;
+        }
+        .join-section {
+            background: rgba(255,255,255,0.97);
+            border-radius: 2em;
+            margin: 2em auto;
+            padding: 2em;
+            max-width: 700px;
+            box-shadow: 0 2px 16px #2980b922;
+            text-align: center;
+        }
+        .join-section h2 {
+            color: #27ae60;
+            margin-bottom: 1em;
+        }
+        .join-section form {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            max-width: 400px;
+            margin: auto;
+        }
+        .join-section input, .join-section select {
+            padding: 0.7em;
+            border-radius: 8px;
+            border: 1px solid #2980b9;
+            font-size: 1em;
+        }
+        .join-section button {
+            background: #2980b9;
+            color: #fff;
+            border: none;
+            padding: 0.7em 1.5em;
+            border-radius: 8px;
+            font-size: 1.08em;
+            box-shadow: 0 2px 8px #27ae6055;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .join-section button:hover {
+            background: #27ae60;
+        }
+        .footer {
+            background: #34495e;
+            color: #fff;
+            padding: 2em 0 0.7em 0;
+            text-align: center;
+            margin-top: 3em;
+        }
+        .footer .footer-logo {
+            width: 55px;
+            border-radius: 10px;
+        }
+        .footer-links {
+            margin: 1.2em 0;
+            display: flex;
+            justify-content: center;
+            gap: 2em;
+        }
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.18em;
+            margin: 0 0.6em;
+        }
+        .footer-links a:hover {
+            color: #27ae60;
+        }
+        .footer-social a {
+            color: #fff;
+            margin: 0 0.6em;
+            font-size: 1.6em;
+        }
+        .footer-social a:hover {
+            color: #8fd3f4;
+        }
+        @media (max-width: 900px) {
+            .clubs-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 600px) {
+            nav, .clubs-section, .join-section, .hero { padding: 1em; }
+            nav ul { flex-direction: column; gap: 0.5em; }
+            .clubs-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <img src="c:\Users\Smarf\Pictures\KDA.jfif" alt="King David Academy Logo">
+            <span style="font-family:'Merriweather',serif;font-weight:700;">King David Academy</span>
+        </div>
+        <ul>
+            <li><a href="#clubs" class="active"><i class="fas fa-users"></i> Clubs</a></li>
+            <li><a href="#join"><i class="fas fa-user-plus"></i> Join</a></li>
+            <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to King David Academy Clubs!</h1>
+        <p>Find your passion, join a club, and make amazing friends. Clubs are open for kids, teens, staff, and teachers. Discover, have fun, and be the best YOU!</p>
+        <img src="c:\Users\Smarf\Pictures\KDA.jfif" width="80" alt="School Logo" style="margin-top:1em;">
+    </section>
+
+    <!-- Clubs Section -->
+    <section id="clubs" class="clubs-section">
+        <div class="clubs-title">Explore Our Clubs</div>
+        <div class="clubs-grid">
+            <div class="club-card">
+                <span class="icon"><i class="fas fa-swimmer"></i></span>
+                <img src="c:\Users\Smarf\Pictures\swimming pool.jfif" alt="Swimming Club">
+                <h3>Swimming</h3>
+                <p>Make a splash! Learn swimming or join competitions. All levels welcome.</p>
+                <a href="#join">Join Swimming</a>
+            </div>
+            <div class="club-card">
+                <span class="icon"><i class="fas fa-futbol"></i></span>
+                <img src="c:\Users\Smarf\Pictures\football.jfif" alt="Football Club">
+                <h3>Football</h3>
+                <p>Score goals, teamwork, fun matches, and tournaments. For boys & girls!</p>
+                <a href="#join">Join Football</a>
+            </div>
+            <div class="club-card">
+                <span class="icon"><i class="fas fa-table-tennis"></i></span>
+                <img src="c:\Users\Smarf\Pictures\tennis.jfif" alt="Tennis Club">
+                <h3>Tennis</h3>
+                <p>Serve, rally, and ace your game! Tennis for beginners and pros.</p>
+                <a href="#join">Join Tennis</a>
+            </div>
+            <div class="club-card">
+                <span class="icon"><i class="fas fa-basketball-ball"></i></span>
+                <img src="c:\Users\Smarf\Pictures\basketball.jfif" alt="Basketball Club">
+                <h3>Basketball</h3>
+                <p>Be a star! Join training, games, and friendly competitions.</p>
+                <a href="#join">Join Basketball</a>
+            </div>
+            <div class="club-card">
+                <span class="icon"><i class="fas fa-dumbbell"></i></span>
+                <img src="c:\Users\Smarf\Pictures\karate.png" alt="Karate Club">
+                <h3>Karate</h3>
+                <p>Learn martial arts, self-defense, discipline, and earn belts!</p>
+                <a href="#join">Join Karate</a>
+            </div>
+            <div class="club-card">
+                <span class="icon"><i class="fas fa-running"></i></span>
+                <img src="c:\Users\Smarf\Pictures\badminton.jfif" alt="Badminton Club">
+                <h3>Badminton</h3>
+                <p>Fast-paced fun! Singles and doubles. All skill levels.</p>
+                <a href="#join">Join Badminton</a>
+            </div>
+            <div class="club-card">
+                <span class="icon"><i class="fas fa-music"></i></span>
+                <img src="c:\Users\Smarf\Pictures\amaraba.jfif" alt="Traditional Dance Club">
+                <h3>Amaraba/Traditional Dance</h3>
+                <p>Dance to Rwandan music, learn culture, join school shows!</p>
+                <a href="#join">Join Amaraba Dance</a>
+            </div>
+            <div class="club-card">
+                <span class="icon"><i class="fas fa-music"></i></span>
+                <img src="c:\Users\Smarf\Pictures\break dancing.jfif" alt="Modern Dance Club">
+                <h3>Modern Dance</h3>
+                <p>Hip-hop, jazz, freestyle! Perform at school events and contests.</p>
+                <a href="#join">Join Modern Dance</a>
+            </div>
+            <div class="club-card">
+                <span class="icon"><i class="fas fa-theater-masks"></i></span>
+                <img src="c:\Users\Smarf\Pictures\acting.jfif" alt="Acting Club">
+                <h3>Acting</h3>
+                <p>Be on stage! Drama, plays, skits, and movie making. All ages.</p>
+                <a href="#join">Join Acting</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Section -->
+    <section id="join" class="join-section">
+        <h2>Join a Club Now!</h2>
+        <form id="clubForm">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <select name="role" required>
+                <option value="">I am a...</option>
+                <option value="Student">Student (Kindergarten)</option>
+                <option value="Student_Primary">Student (Primary)</option>
+                <option value="Student_Secondary">Student (Secondary)</option>
+                <option value="Teacher">Teacher</option>
+                <option value="Staff">Staff</option>
+            </select>
+            <select name="club" required>
+                <option value="">Select Club</option>
+                <option value="Swimming">Swimming</option>
+                <option value="Football">Football</option>
+                <option value="Tennis">Tennis</option>
+                <option value="Badminton">Badminton</option>
+                <option value="Basketball">Basketball</option>
+                <option value="Karate">Karate</option>
+                <option value="Amaraba">Amaraba/Traditional Dance</option>
+                <option value="ModernDance">Modern Dance</option>
+                <option value="Acting">Acting</option>
+            </select>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="clubResult" style="margin-top:1em;font-size:1.2em;color:#2980b9;"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="join-section">
+        <h2>About King David Academy Clubs</h2>
+        <p>
+            Clubs are a fun way for students and staff to learn, practice, and share interests. Whether you're into sports, arts, or performance, there is something for everyone.  
+            Clubs run after school and weekends. You can join more than one club.  
+            <br><br>
+            <b>Why join?</b>  
+            - Make new friends  
+            - Discover talents  
+            - Compete and perform  
+            - Have fun!
+        </p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="join-section">
+        <h2>Contact Us</h2>
+        <p>For questions or help, email <a href="mailto:info@kingdavidacademy.co" style="color:#2980b9;">info@kingdavidacademy.co</a> or see your club leader.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <img src="c:\Users\Smarf\Pictures\KDA.jfif" class="footer-logo" alt="KDA Logo">
+        <div class="footer-links">
+            <a href="#clubs">Clubs</a>
+            <a href="#join">Join</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <a href="https://www.kingdavidacademy.com/" target="_blank">KDA Main Site</a>
+        </div>
+        <div class="footer-social">
+            <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
+        </div>
+        <div style="margin-top:1em;">&copy; 2025 King David Academy. All rights reserved.</div>
+    </footer>
+
+    <!-- Fun Interactivity Script -->
+    <script>
+    // Fun join form
+    document.getElementById('clubForm').onsubmit = function(e) {
+        e.preventDefault();
+        const name = this.name.value.trim();
+        const role = this.role.value;
+        const club = this.club.value;
+        let msg = "";
+        if(name && role && club) {
+            msg = `🎉 Hi ${name}! You (${role.replace('_',' ')}) have joined the <b>${club.replace('ModernDance','Modern Dance').replace('Amaraba','Amaraba/Traditional Dance')}</b> club.<br>Welcome! Get ready for fun, learning, and making new friends! 🎈`;
+        } else {
+            msg = "Please fill in all fields!";
+        }
+        document.getElementById('clubResult').innerHTML = msg;
+        this.reset();
+    };
+    </script>
+</body>
+</html>
